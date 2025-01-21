@@ -1,0 +1,8 @@
+callset,snp,indel,seed
+google-deepvariant,../giab-stratomod/results/annotated_variants/labeled/google_deepvariant/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/google_deepvariant/INDEL.tsv.gz,1234
+illumina-dragen,../giab-stratomod/results/annotated_variants/labeled/illumina_dragen/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/illumina_dragen/INDEL.tsv.gz,2341
+jhu-imputefirst,../giab-stratomod/results/annotated_variants/labeled/jhu_imputefirst/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/jhu_imputefirst/INDEL.tsv.gz,3412
+ont-clair3,../giab-stratomod/results/annotated_variants/labeled/ont_clair3/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/ont_clair3/INDEL.tsv.gz,4123
+roche-neusomatic,../giab-stratomod/results/annotated_variants/labeled/roche_neusomatic/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/roche_neusomatic/INDEL.tsv.gz,5678
+sention-hybrid,../giab-stratomod/results/annotated_variants/labeled/sentieon_hybrid/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/sentieon_hybrid/INDEL.tsv.gz,6785
+ultima-ug,../giab-stratomod/results/annotated_variants/labeled/ultima_ug/SNV.tsv.gz,../giab-stratomod/results/annotated_variants/labeled/ultima_ug/INDEL.tsv.gz,7856
