@@ -1,0 +1,8 @@
+## Nextflow pipeline files
+.nextflow/**
+.nextflow.log*
+results/**
+work/**
+dag*html
+report*html
+pipeline_trace.txt
