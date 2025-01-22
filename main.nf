@@ -36,10 +36,10 @@ workflow {
         params.pat_chain.url,
         params.pat_chain.md5
     )
-    println "Before ANNOTATE_VARIANTS"
+
     // Annotate variants
     ANNOTATE_VARIANTS(callset_ch)
-    println "After ANNOTATE_VARIANTS"
+
     // Intersect with repeats
     INTERSECT_REPEATS(ANNOTATE_VARIANTS.out.curation_bed, DOWNLOAD_AND_CHECK.out.repeats_bed)
 
@@ -50,5 +50,11 @@ workflow {
     LIFTOVER(CREATE_IGV_REGIONS.out, DOWNLOAD_AND_CHECK.out.mat_chain, DOWNLOAD_AND_CHECK.out.pat_chain)
 
     // Combine results
-    COMBINE_RESULTS(ANNOTATE_VARIANTS.out.curation_tsv, LIFTOVER.out.mat_bed, LIFTOVER.out.pat_bed)
+    ANNOTATE_VARIANTS.out.curation_tsv
+        .join(LIFTOVER.out.mat_bed, by: 0)
+        .join(LIFTOVER.out.pat_bed, by: 0)
+        .set { combined_ch }
+    combined_ch.view { "Combined channel: $it" }
+    COMBINE_RESULTS(combined_ch) 
+
 }

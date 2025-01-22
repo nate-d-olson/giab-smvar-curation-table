@@ -2,14 +2,13 @@ process COMBINE_RESULTS {
     tag "${callset}"
 
     input:
-    tuple val(callset), path(curation_tsv)
-    tuple val(callset), path(mat_bed)
-    tuple val(callset), path(pat_bed)
+    tuple val(callset), path(curation_tsv), path(mat_bed), path(pat_bed)
 
     output:
     tuple val(callset), path("${callset}_final_curation_table.tsv")
 
     script:
+    println "COMBINE_RESULTS input: callset=${callset}, curation_tsv=${curation_tsv}, mat_bed=${mat_bed}, pat_bed=${pat_bed}"
     """
     #!/usr/bin/env python3
     import pandas as pd
