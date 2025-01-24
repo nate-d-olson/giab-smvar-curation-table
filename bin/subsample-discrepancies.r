@@ -436,6 +436,7 @@ simplified_subsampled_df %>%
 
 subsampled_df %>%
   ungroup() %>%
+  filter(!(strata %in% c("S03","S08", "S12", "S17"))) |> 
   select(chrom, chromStart, chromEnd) %>%
   write_tsv(file = args$outbed, col_names = FALSE)
 
