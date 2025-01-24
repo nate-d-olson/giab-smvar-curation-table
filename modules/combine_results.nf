@@ -77,6 +77,6 @@ process COMBINE_RESULTS {
         print("Final TSV and input callset TSV have different number of rows")
 
     # Save final table
-    final_df.to_csv("${callset}_final_curation_table.tsv", sep="\t", index=True)
+    final_df.to_csv("${callset}_curation_table.tsv", sep="\t", index=True)
     """
 }
