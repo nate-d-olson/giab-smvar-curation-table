@@ -33,6 +33,10 @@ parser$add_argument("--outbed",
   default = "vars_to_curate.bed", type = "character",
   help = "Path to write bed file with variants to curate [default %(default)s]"
 )
+parser$add_argument("--stratacounts",
+  default = "strata_counts.tsv", type = "character",
+  help = "Path to write number of variants per strata [default %(default)s]"
+)
 
 args <- parser$parse_args()
 
@@ -320,6 +324,12 @@ print(
     count()
 )
 
+## saving strata counts
+stratomod_df |> 
+  group_by(strata) |> 
+  count() |> 
+  write_tsv(file = args$stratacounts)
+
 ## Sampling for manual curation ################################################
 
 ## Setting seed for reproducibility
@@ -420,6 +430,8 @@ mutate(
 )
 
 simplified_subsampled_df %>%
+  ## excluding XYnonPar strata
+  filter(!(strata %in% c("S03","S08", "S12", "S17"))) |> 
   write_tsv(file = args$outtable)
 
 subsampled_df %>%

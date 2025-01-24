@@ -9,6 +9,7 @@ process ANNOTATE_VARIANTS {
     output:
     tuple val(callset), path("${callset}_vars_to_curate.tsv"), emit: curation_tsv
     tuple val(callset), path("${callset}_curation.bed"), emit: curation_bed
+    tuple val(callset), path("${callset}_strata_counts.tsv"), emit: strata_counts
 
     script:
     """
@@ -16,6 +17,7 @@ process ANNOTATE_VARIANTS {
         --snp ${snp_input} --indel ${indel_input} \
         --outtable ${callset}_vars_to_curate.tsv \
         --outbed ${callset}_curation.bed \
+        --stratacounts ${callset}_strata_counts.tsv \
         --seed ${seed}
     """
 }
